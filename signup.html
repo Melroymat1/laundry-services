@@ -231,6 +231,7 @@
               <input
                 type="text"
                 name="email"
+                id="email"
                 placeholder="Enter your Email "
                 required
               />
@@ -238,6 +239,7 @@
             <div class="field">
               <input
                 type="password"
+                id="password"
                 name="password"
                 placeholder="Enter your Password"
                 required
@@ -252,29 +254,62 @@
               <input type="submit" value="Login" />
             </div>
           </form>
-          <form action="signup.php" class="signup">
+          <form action="signup.php" method="post" class="signup">
             <div class="field">
-              <input type="text" placeholder="Enter your User Name" required />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter your  Name"
+                required
+              />
             </div>
             <div class="field">
-              <input type="email" placeholder="Enter your Email " required />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your Email "
+                required
+              />
             </div>
             <div class="field">
               <input
                 type="password"
+                id="password"
+                name="password"
                 placeholder="Enter your Password"
                 required
               />
             </div>
             <div class="field">
-              <input type="dig" placeholder="Enter your Number" required />
+              <input
+                type="number"
+                id="number"
+                name="number"
+                placeholder="Enter your phone Number"
+                required
+              />
             </div>
             <div class="field">
-              <input type="text" placeholder="Enter Your Address" required />
+              <input
+                type="text"
+                name="address"
+                id="address"
+                placeholder="Enter Your Address"
+                required
+              />
             </div>
             <div class="field">
-              <input type="text" placeholder="Enter Your Pincode" required />
+              <input
+                type="text"
+                name="pincode"
+                id="pincode"
+                placeholder="Enter Your pincode"
+                required
+              />
             </div>
+
             <div class="field btn">
               <div class="btn-layer"></div>
               <input type="submit" value="Signup" />
@@ -301,6 +336,28 @@
         signupBtn.click();
         return false;
       };
+
+      //enter auto signup//
+      let uname = document.getElementById("name");
+      let em = document.getElementById("email");
+      let pass = document.getElementById("password");
+      let num = document.getElementById("number");
+      let addr = document.getElementById("address");
+      let pinc = document.getElementById("pincode");
+
+      function changefocus(firstbox, secondbox) {
+        firstbox.addEventListener("keydown", (e) => {
+          if (e.key == "Enter") {
+            e.preventDefault();
+            secondbox.focus();
+          }
+        });
+      }
+      changefocus(uname, em);
+      changefocus(em, pass);
+      changefocus(pass, num);
+      changefocus(num, addr);
+      changefocus(addr, pinc);
     </script>
   </body>
 </html>
