@@ -12,7 +12,7 @@ if (isset($_POST['email'])) {
         die('con error');
     }
 
-    $query = "SELECT * FROM `signup1`.`signup1` WHERE email='$email' and password='$pass';";
+    $query = "SELECT * FROM `admin2`.`signup1` WHERE email='$email' and password='$pass';";
     $res = $con->query($query);
     if (!$res->num_rows == 1) {
         echo "<script> alert('Not a Valid User or password');</script>";
